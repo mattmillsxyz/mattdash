@@ -1,12 +1,16 @@
 'use client';
 import { useContext, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { UserContext } from '../context/UserContext';
 
 import Login from '@/app/login/page';
+import SignUp from '@/app/signup/page';
 
 function AuthWrapper({ children }: { children: any }) {
   const { user, loading } = useContext(UserContext);
+  const pathname = usePathname();
+
+  console.log('DEBUG: router: ', pathname);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -14,7 +18,7 @@ function AuthWrapper({ children }: { children: any }) {
     return children;
   }
 
-  return <Login></Login>;
+  return pathname === '/signup' ? <SignUp /> : <Login />;
 }
 
 export default AuthWrapper;

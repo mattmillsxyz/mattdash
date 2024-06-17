@@ -1,15 +1,22 @@
+/* eslint-disable @next/next/no-img-element */
 // app/signup/page.tsx
 'use client';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { auth, db } from '../../firebaseConfig';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, db, provider } from '../../firebaseConfig';
+import { createUserWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
+import { UserContext } from '@/context/UserContext';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter();
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    if (user) router.push('/');
+  }, [user, router]);
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,9 +30,18 @@ const SignUp = () => {
         uid: user.uid,
       });
 
-      router.push('/login');
+      router.push('/');
     } catch (error) {
       console.error('Error signing up:', error);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      router.push('/profile');
+    } catch (error) {
+      console.error('Error logging in: ', error);
     }
   };
 
@@ -49,6 +65,14 @@ const SignUp = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
+      <div style={{ marginBottom: 20, marginTop: 20 }}>
+        <button
+          onClick={handleGoogleLogin}
+          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+        >
+          <img width={220} src="/img/sign-in-with-google.png" alt="Sign in with Google" />
+        </button>
+      </div>
     </div>
   );
 };
