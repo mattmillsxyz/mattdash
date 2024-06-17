@@ -35,7 +35,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         } else {
           // Create user
           await setDoc(doc(db, 'users', user.uid), {
-            uuid: user.uid,
+            id: user.uid,
             email: user.email,
             avatar: user.photoURL,
           });
