@@ -13,6 +13,8 @@ interface UserContextProps {
 
 interface UserData {
   email: string;
+  avatar: string;
+  id: string;
 }
 
 export const UserContext = createContext<UserContextProps>({
