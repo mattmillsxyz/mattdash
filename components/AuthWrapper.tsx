@@ -10,8 +10,6 @@ function AuthWrapper({ children }: { children: any }) {
   const { user, loading } = useContext(UserContext);
   const pathname = usePathname();
 
-  console.log('DEBUG: router: ', pathname);
-
   if (loading) {
     return <div>Loading...</div>;
   } else if (user) {

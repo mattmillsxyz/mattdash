@@ -70,7 +70,7 @@ const SignUp = () => {
           onClick={handleGoogleLogin}
           style={{ background: 'none', border: 'none', cursor: 'pointer' }}
         >
-          <img width={220} src="/img/sign-in-with-google.png" alt="Sign in with Google" />
+          <img width={220} src="/img/sign-up-with-google.png" alt="Sign in with Google" />
         </button>
       </div>
     </div>

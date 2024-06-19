@@ -50,7 +50,6 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      console.log('DEBUG: USER: ', firebaseUser);
       setUser(firebaseUser);
       setLoading(false);
     });

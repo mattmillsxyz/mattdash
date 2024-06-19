@@ -15,12 +15,11 @@ function Header() {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        console.log('DEBUG: SIGNED OUT');
         router.push('/login');
       })
       .catch((error) => {
         // An error happened.
-        console.log('DEBUG: SINGOUT ERROR: ', error);
+        console.error(error);
       });
   };
 
