@@ -3,10 +3,15 @@
 'use client';
 import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { Button } from '@nextui-org/react';
+import cx from 'classnames';
+
 import { auth, provider } from '../../firebaseConfig';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import Link from 'next/link';
 import { UserContext } from '@/context/UserContext';
+
+import styles from './login.module.scss';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -38,34 +43,37 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleEmailLogin}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-      <div style={{ marginBottom: 20, marginTop: 20 }}>
-        <button
-          onClick={handleGoogleLogin}
-          style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-        >
-          <img width={220} src="/img/sign-in-with-google.png" alt="Sign in with Google" />
-        </button>
+    <div className={cx(styles.login, 'min-h-screen')}>
+      <div className={styles.loginForm}>
+        <form onSubmit={handleEmailLogin}>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="name@example.com"
+            required
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            required
+          />
+          <Button className="w-full" radius="full" size="lg" type="submit">
+            LOG IN
+          </Button>
+        </form>
+        <div style={{ marginBottom: 20, marginTop: 20 }}>
+          <button
+            onClick={handleGoogleLogin}
+            style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+          >
+            <img width={220} src="/img/buttons/sign-in-with-google.png" alt="Sign in with Google" />
+          </button>
+        </div>
+        Don&apos;t have an account? <Link href="/signup">Sign up now</Link>.
       </div>
-      Don&apos;t have an account? <Link href="/signup">Sign up now</Link>.
     </div>
   );
 };

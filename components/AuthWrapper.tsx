@@ -1,5 +1,5 @@
 'use client';
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import { UserContext } from '../context/UserContext';
 
