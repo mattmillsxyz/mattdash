@@ -45,9 +45,13 @@ function Header() {
       </div>
       <div>
         {user ? (
-          <button onClick={handleSignOut}>SIGN OUT</button>
+          <button className="btn btn-primary" onClick={handleSignOut}>
+            SIGN OUT
+          </button>
         ) : (
-          <button onClick={handleSignIn}>SIGN OUT</button>
+          <button className="btn btn-primary" onClick={handleSignIn}>
+            SIGN OUT
+          </button>
         )}
       </div>
     </div>
