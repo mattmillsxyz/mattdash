@@ -43,6 +43,9 @@ const Login = () => {
 
   return (
     <div className={cx(styles.login, 'min-h-screen')}>
+      <div>
+        <h1 className="text-success">DRill</h1>
+      </div>
       <div className={styles.loginForm}>
         <form onSubmit={handleEmailLogin}>
           <Input
@@ -67,12 +70,12 @@ const Login = () => {
             LOG IN
           </Button>
         </form>
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
           <button
             onClick={handleGoogleLogin}
             style={{ background: 'none', border: 'none', cursor: 'pointer' }}
           >
-            <img width={220} src="/img/buttons/sign-in-with-google.png" alt="Sign in with Google" />
+            <img width={160} src="/img/buttons/sign-in-with-google.png" alt="Sign in with Google" />
           </button>
         </div>
         <div className="mt-4 text-center">
