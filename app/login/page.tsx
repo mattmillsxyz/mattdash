@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <div className={cx(styles.login, 'min-h-screen')}>
       <div>
-        <h1 className="text-success">DRill</h1>
+        <h1 className="text-success font-bold">DRILL</h1>
       </div>
       <div className={styles.loginForm}>
         <form onSubmit={handleEmailLogin}>
@@ -55,7 +55,6 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
             className="mb-6"
-            variant="underlined"
           />
           <Input
             type="password"
@@ -64,9 +63,8 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
             className="mb-10"
-            variant="underlined"
           />
-          <Button className="w-full" color="success" radius="full" size="lg" type="submit">
+          <Button className="w-full" color="success" size="lg" type="submit">
             LOG IN
           </Button>
         </form>

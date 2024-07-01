@@ -1,10 +1,11 @@
 'use client';
 
-import { UserContext } from '@/context/UserContext';
 import { getAuth, signOut } from 'firebase/auth';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useContext } from 'react';
+
+import { UserContext } from '@/context/UserContext';
 
 function Header() {
   const { user } = useContext(UserContext);
@@ -28,15 +29,7 @@ function Header() {
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        width: '100%',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: 20,
-      }}
-    >
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <h1 style={{ marginRight: 20 }}>
           <Link href="/">DRILL</Link>
@@ -44,15 +37,9 @@ function Header() {
         <Link href="/profile">Profile</Link>
       </div>
       <div>
-        {user ? (
-          <button className="btn btn-primary" onClick={handleSignOut}>
-            SIGN OUT
-          </button>
-        ) : (
-          <button className="btn btn-primary" onClick={handleSignIn}>
-            SIGN OUT
-          </button>
-        )}
+        <button className="btn btn-primary" onClick={handleSignOut}>
+          SIGN OUT
+        </button>
       </div>
     </div>
   );

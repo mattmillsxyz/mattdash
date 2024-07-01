@@ -15,6 +15,8 @@ interface UserData {
   email: string;
   avatar: string;
   id: string;
+  name: string;
+  onboardingComplete: boolean;
 }
 
 export const UserContext = createContext<UserContextProps>({

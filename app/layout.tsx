@@ -17,10 +17,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cx(opensans.className, 'min-h-screen')}>
+      <body
+        className={cx(
+          opensans.className,
+          'min-h-screen',
+          'dark',
+          'text-foreground',
+          'bg-background'
+        )}
+      >
         <UserProvider>
           <NextUIProvider>
-            <main className="min-h-screen dark text-foreground bg-background">
+            <main className="min-h-screen">
               <AuthWrapper>
                 <Header />
                 {children}

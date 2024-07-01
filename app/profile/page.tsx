@@ -5,7 +5,10 @@ import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 
 const Profile = () => {
-  const { userData } = useContext(UserContext);
+  const { user, userData } = useContext(UserContext);
+  const created = user?.metadata?.creationTime
+    ? new Date(user?.metadata?.creationTime).toLocaleDateString()
+    : null;
 
   return (
     <div>
@@ -18,6 +21,7 @@ const Profile = () => {
           <p>Email: {userData.email}</p>
         </div>
       )}
+      {created && <div>Created: {created}</div>}
     </div>
   );
 };
