@@ -12,10 +12,8 @@ function Onboarding() {
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
-    console.log('DEBUG: STEP: ', step);
     if (step > 0) {
       const complete = (step / 4) * 100;
-      console.log('DEBUG: complete: ', step, complete);
       setProgress(complete);
     }
   }, [step]);
