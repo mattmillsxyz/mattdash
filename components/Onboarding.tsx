@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Button, Input, Progress, DateInput } from '@nextui-org/react';
+import {
+  Button,
+  Input,
+  Progress,
+  DateInput,
+  Chip,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from '@nextui-org/react';
 import { CalendarDate, getLocalTimeZone } from '@internationalized/date';
 import cx from 'classnames';
 
@@ -60,6 +69,24 @@ function Onboarding() {
     });
   };
 
+  const renderInfo = (title: string, message: string) => {
+    return (
+      <Popover placement="top-end" offset={20} color="foreground">
+        <PopoverTrigger>
+          <Chip size="sm" color="warning" className="ml-2">
+            ?
+          </Chip>
+        </PopoverTrigger>
+        <PopoverContent>
+          <div className="px-1 py-2 max-w-72">
+            <div className="text-small font-bold">{title}</div>
+            <div className="text-tiny">{message}</div>
+          </div>
+        </PopoverContent>
+      </Popover>
+    );
+  };
+
   const renderStep = () => {
     if (step === 0) {
       return (
@@ -108,7 +135,13 @@ function Onboarding() {
     } else if (step === 2) {
       return (
         <>
-          <h4 className="text-2xl font-bold mb-10">What is your birth date?</h4>
+          <h4 className="text-2xl font-bold mb-10 flex justify-center items-center">
+            What is your birth date?
+            {renderInfo(
+              'Why do we need your birth date?',
+              "We'll use your age to help suggest drills based on your age group."
+            )}
+          </h4>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -151,7 +184,13 @@ function Onboarding() {
     } else if (step === 3) {
       return (
         <>
-          <h4 className="text-2xl font-bold mb-10">Where are you from?</h4>
+          <h4 className="text-2xl font-bold mb-10 flex justify-center items-center">
+            Where are you from?
+            {renderInfo(
+              'Why do we need your location?',
+              "We'll display your country next to your username in our leaderboards."
+            )}
+          </h4>
           <form
             onSubmit={(e) => {
               e.preventDefault();
