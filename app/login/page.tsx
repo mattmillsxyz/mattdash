@@ -64,7 +64,7 @@ const Login = () => {
             required
             className="mb-10"
           />
-          <Button className="w-full" color="success" size="lg" type="submit">
+          <Button className="w-full font-bold" color="success" size="lg" type="submit">
             LOG IN
           </Button>
         </form>

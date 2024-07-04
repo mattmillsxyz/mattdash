@@ -8,7 +8,7 @@ import styles from './Onboarding.module.scss';
 function Onboarding() {
   const [step, setStep] = useState<number>(0);
   const [name, setName] = useState<string>('');
-  const [country, setCountry] = useState<string>('');
+  const [country, setCountry] = useState<string | undefined>(undefined);
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
@@ -29,7 +29,12 @@ function Onboarding() {
         <>
           <h1 className="text-success mb-1">HELLO!</h1>
           <p>Before you start, we need to setup your profile.</p>
-          <Button className="mt-10" color="success" size="lg" onClick={() => setStep(step + 1)}>
+          <Button
+            className="mt-10 font-bold"
+            color="success"
+            size="lg"
+            onClick={() => setStep(step + 1)}
+          >
             LET&apos;S GO
           </Button>
         </>
@@ -53,7 +58,7 @@ function Onboarding() {
             />
             <Button
               type="submit"
-              className="mt-10"
+              className="mt-10 font-bold"
               color="success"
               size="lg"
               disabled={!isValidName()}
@@ -73,13 +78,16 @@ function Onboarding() {
               setStep(step + 1);
             }}
           >
-            <CountrySelector />
+            <CountrySelector
+              selectedCountry={country}
+              onCountryChange={(value) => setCountry(value)}
+            />
             <Button
               type="submit"
-              className="mt-10"
+              className="mt-10 font-bold"
               color="success"
               size="lg"
-              disabled={!country.length}
+              disabled={!country?.length}
             >
               CONTINUE
             </Button>
@@ -98,7 +106,7 @@ function Onboarding() {
       <div>
         {step > 0 && (
           <Button
-            className="mt-5"
+            className="mt-5 font-bold"
             variant="light"
             color="warning"
             onClick={() => setStep(step - 1)}
