@@ -9,13 +9,16 @@ interface UserContextProps {
   user: User | null;
   loading: boolean;
   userData: UserData | null;
+  setUserData: (data: UserData) => void;
 }
 
-interface UserData {
+export interface UserData {
   email: string;
   avatar: string;
   id: string;
   name: string;
+  birthDate: string;
+  country: string;
   onboardingComplete: boolean;
 }
 
@@ -23,6 +26,7 @@ export const UserContext = createContext<UserContextProps>({
   user: null,
   loading: true,
   userData: null,
+  setUserData: () => {},
 });
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
@@ -59,6 +63,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, loading, userData }}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ user, loading, userData, setUserData }}>
+      {children}
+    </UserContext.Provider>
   );
 };

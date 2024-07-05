@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import {
   Button,
   Input,
@@ -9,9 +9,13 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from '@nextui-org/react';
-import { CalendarDate, getLocalTimeZone } from '@internationalized/date';
+import { useRouter } from 'next/navigation';
+import { CalendarDate } from '@internationalized/date';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { UserContext, UserData } from '@/context/UserContext';
 import cx from 'classnames';
 
+import { db } from '@/firebaseConfig';
 import CountrySelector from '@/components/CountrySelector';
 import styles from './Onboarding.module.scss';
 
@@ -22,6 +26,8 @@ function Onboarding() {
   const [birthDate, setBirthDate] = useState<CalendarDate>();
   const [validBirthDate, setValidBirthDate] = useState(false);
   const [progress, setProgress] = useState<number>(0);
+  const { user, setUserData } = useContext(UserContext);
+  const router = useRouter();
 
   useEffect(() => {
     const currYear = new Date().getFullYear();
@@ -61,12 +67,21 @@ function Onboarding() {
     return false;
   };
 
-  const completeOnboarding = () => {
-    console.log('DEBUG: ONBOARDING COMPLETE: ', {
-      name,
-      birthDate: `${birthDate?.month}/${birthDate?.day}/${birthDate?.year}`,
-      country,
-    });
+  const completeOnboarding = async () => {
+    if (user) {
+      // Add user profile details to Firestore
+      await updateDoc(doc(db, 'users', user.uid), {
+        name,
+        birthDate: `${birthDate?.month}/${birthDate?.day}/${birthDate?.year}`,
+        country,
+        onboardingComplete: true,
+      });
+
+      setStep(step + 1);
+    } else {
+      // TODO: Handle errors
+      window.alert('There was a problem creating your profile!');
+    }
   };
 
   const renderInfo = (title: string, message: string) => {
@@ -194,7 +209,7 @@ function Onboarding() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setStep(step + 1);
+              completeOnboarding();
             }}
           >
             <CountrySelector
@@ -222,7 +237,12 @@ function Onboarding() {
             className="mt-10 font-bold"
             color="success"
             size="lg"
-            onClick={completeOnboarding}
+            onClick={async () => {
+              if (user) {
+                const userDoc = await getDoc(doc(db, 'users', user.uid));
+                setUserData(userDoc.data() as UserData);
+              }
+            }}
           >
             GET STARTED
           </Button>
