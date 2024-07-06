@@ -1,13 +1,14 @@
 'use client';
 
+import { ThemeSwitcher } from '@/components/ThemeSwitcher';
+
 import { getAuth, signOut } from 'firebase/auth';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useContext } from 'react';
 
 import { UserContext } from '@/context/UserContext';
 
-function Header() {
+function Settings() {
   const { user } = useContext(UserContext);
   const auth = getAuth();
   const router = useRouter();
@@ -24,25 +25,16 @@ function Header() {
       });
   };
 
-  const handleSignIn = () => {
-    router.push('/login');
-  };
-
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <h1 style={{ marginRight: 20 }}>
-          <Link href="/">DRILL</Link>
-        </h1>
-        <Link href="/profile">Profile</Link>
-      </div>
+    <>
       <div>
-        <button className="btn btn-primary" onClick={handleSignOut}>
-          SIGN OUT
-        </button>
+        <ThemeSwitcher />
       </div>
-    </div>
+      <button className="btn btn-primary" onClick={handleSignOut}>
+        SIGN OUT
+      </button>
+    </>
   );
 }
 
-export default Header;
+export default Settings;

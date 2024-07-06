@@ -1,4 +1,5 @@
 'use client';
+
 import { useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import { Spinner } from '@nextui-org/react';
@@ -6,7 +7,7 @@ import { UserContext } from '../context/UserContext';
 
 import Login from '@/app/login/page';
 import SignUp from '@/app/signup/page';
-import Onboarding from '@/components/Onboarding';
+import Onboarding from '@/components/Onboarding/Onboarding';
 
 function AuthWrapper({ children }: { children: any }) {
   const { user, userData, loading } = useContext(UserContext);
