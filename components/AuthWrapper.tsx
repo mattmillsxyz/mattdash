@@ -1,5 +1,5 @@
 'use client';
-import { ComponentProps, useContext } from 'react';
+import { useContext } from 'react';
 import { usePathname } from 'next/navigation';
 import { Spinner } from '@nextui-org/react';
 import { UserContext } from '../context/UserContext';

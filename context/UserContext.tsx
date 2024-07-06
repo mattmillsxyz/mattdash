@@ -3,7 +3,7 @@
 import { createContext, useEffect, useState, ReactNode } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { db, auth } from '../firebaseConfig';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, onSnapshot, setDoc } from 'firebase/firestore';
 
 interface UserContextProps {
   user: User | null;
@@ -61,6 +61,10 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     });
     return () => unsubscribe();
   }, []);
+
+  // useEffect(() => {
+  //   const unsubscribe = onSnapshot(db, "users")
+  // })
 
   return (
     <UserContext.Provider value={{ user, loading, userData, setUserData }}>
