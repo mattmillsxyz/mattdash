@@ -61,7 +61,7 @@ function Settings() {
           'btn',
           'btn-primary',
           'dark:border-neutral-700',
-          'border-neutral-100',
+          'border-neutral-200',
           'w-full',
           'text-left',
           'font-bold',

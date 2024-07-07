@@ -15,7 +15,8 @@
 
 .settingsItem {
   padding: 20px 0;
-  border-top: 1px solid;
+  border-top-width: 1px;
+  border-top-style: solid;
   display: flex;
   align-items: center;
 }

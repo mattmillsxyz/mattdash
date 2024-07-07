@@ -1,0 +1,17 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  padding: 56px 24px 80px 24px;
+}
+
+.profileWrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+.avatar {
+  border-right-width: 1px;
+  border-right-style: solid;
+  width: 100%;
+  display: flex;
+}
