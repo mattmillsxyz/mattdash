@@ -1,0 +1,25 @@
+.settings {
+  display: flex;
+  justify-content: center;
+  padding: 56px 24px 80px 24px;
+}
+
+.settingsWrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+.settingsList {
+  text-align: left;
+}
+
+.settingsItem {
+  padding: 20px 0;
+  border-top: 1px solid;
+  display: flex;
+  align-items: center;
+}
+
+.itemName {
+  flex: 1;
+}
