@@ -1,0 +1,13 @@
+.home {
+  padding: 56px 24px 80px 24px;
+}
+
+.welcomeTitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.userName {
+}

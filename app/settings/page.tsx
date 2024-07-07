@@ -7,6 +7,7 @@ import { Button, Switch } from '@nextui-org/react';
 import { useTheme } from 'next-themes';
 import cx from 'classnames';
 
+import { capitalize } from '@/utils/textUtils';
 import { UserContext } from '@/context/UserContext';
 
 import styles from './settings.module.scss';
@@ -28,8 +29,6 @@ function Settings() {
         console.error(error);
       });
   };
-
-  const capitalize = (s: string) => s && s[0].toUpperCase() + s.slice(1);
 
   const renderThemeSwitcher = () => {
     return (
@@ -86,8 +85,8 @@ function Settings() {
           <h3 className="font-bold text-2xl">Settings</h3>
         </div>
         <div className={styles.settingsList}>
-          {renderListItem('Subscription', () => router.push('/settings/subscription'), true)}
           {renderListItem('Color Mode', () => null, false)}
+          {renderListItem('Subscription', () => router.push('/settings/subscription'), true)}
           {renderListItem('Language', () => router.push('/settings/language'), true)}
           {renderListItem('Notifications', () => router.push('/settings/notifications'), true)}
           {renderListItem('Contact Us', () => router.push('/settings/contact-us'), true)}
