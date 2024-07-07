@@ -72,7 +72,12 @@ const SignUp = () => {
             required
             className="mb-10"
           />
-          <Button className="w-full font-bold" color="success" size="lg" type="submit">
+          <Button
+            className="w-full font-bold text-white dark:text-black"
+            color="success"
+            size="lg"
+            type="submit"
+          >
             SIGN UP
           </Button>
         </form>

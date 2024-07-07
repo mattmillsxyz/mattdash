@@ -106,10 +106,10 @@ function Onboarding() {
     if (step === 0) {
       return (
         <>
-          <h1 className="text-success mb-1">HELLO!</h1>
+          <h1 className="text-success mb-1 font-bold">HELLO!</h1>
           <p>Before you start, we need to setup your player profile.</p>
           <Button
-            className="mt-10 font-bold"
+            className="mt-10 font-bold text-white dark:text-black"
             color="success"
             size="lg"
             onClick={() => setStep(step + 1)}
@@ -137,7 +137,7 @@ function Onboarding() {
             />
             <Button
               type="submit"
-              className="mt-10 font-bold"
+              className="mt-10 font-bold text-white dark:text-black"
               color="success"
               size="lg"
               disabled={!isValidName()}
@@ -186,7 +186,7 @@ function Onboarding() {
             />
             <Button
               type="submit"
-              className="mt-10 font-bold"
+              className="mt-10 font-bold text-white dark:text-black"
               color="success"
               size="lg"
               disabled={!validBirthDate}
@@ -218,7 +218,7 @@ function Onboarding() {
             />
             <Button
               type="submit"
-              className="mt-10 font-bold"
+              className="mt-10 font-bold text-white dark:text-black"
               color="success"
               size="lg"
               disabled={!country?.length}
@@ -231,10 +231,10 @@ function Onboarding() {
     } else if (step === 4) {
       return (
         <>
-          <h1 className="text-success mb-1">GREAT JOB!</h1>
+          <h1 className="text-success mb-1 font-bold">GREAT JOB!</h1>
           <p>Your player profile is complete.</p>
           <Button
-            className="mt-10 font-bold"
+            className="mt-10 font-bold text-white dark:text-black"
             color="success"
             size="lg"
             onClick={async () => {
