@@ -29,18 +29,18 @@ function MenuBar() {
         <Button
           variant="light"
           isIconOnly
-          onClick={() => router.push('/settings')}
-          className={cx(path.startsWith('/settings') ? 'text-success' : null)}
-        >
-          <i className={cx(styles.icon, 'bi', 'bi-gear-fill')}></i>
-        </Button>
-        <Button
-          variant="light"
-          isIconOnly
           onClick={() => router.push('/profile')}
           className={cx(path.startsWith('/profile') ? 'text-success' : null)}
         >
           <i className={cx(styles.icon, 'bi', 'bi-person-circle')}></i>
+        </Button>
+        <Button
+          variant="light"
+          isIconOnly
+          onClick={() => router.push('/settings')}
+          className={cx(path.startsWith('/settings') ? 'text-success' : null)}
+        >
+          <i className={cx(styles.icon, 'bi', 'bi-gear-fill')}></i>
         </Button>
       </div>
     </div>

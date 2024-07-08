@@ -10,8 +10,24 @@
 }
 
 .avatar {
-  border-right-width: 1px;
-  border-right-style: solid;
   width: 100%;
   display: flex;
+}
+
+.membership {
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.username {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.email {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
