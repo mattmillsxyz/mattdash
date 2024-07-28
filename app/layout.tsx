@@ -3,12 +3,8 @@ import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import cx from 'classnames';
 
-import AuthWrapper from '@/components/AuthWrapper';
-import { UserProvider } from '@/context/UserContext';
-
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './globals.css';
-import MenuBar from '@/components/MenuBar/MenuBar';
 
 const opensans = Open_Sans({ subsets: ['latin'] });
 
@@ -24,18 +20,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <UserProvider>
-          <NextUIProvider>
-            <NextThemesProvider attribute="class" defaultTheme="dark">
-              <main className="min-h-screen">
-                <AuthWrapper>
-                  {children}
-                  <MenuBar />
-                </AuthWrapper>
-              </main>
-            </NextThemesProvider>
-          </NextUIProvider>
-        </UserProvider>
+        <NextUIProvider>
+          <NextThemesProvider attribute="class" enableSystem>
+            <main className="min-h-screen dark:bg-neutral-900 light:bg-neutral-100">
+              {children}
+            </main>
+          </NextThemesProvider>
+        </NextUIProvider>
       </body>
     </html>
   );

@@ -1,14 +1,10 @@
 'use client';
-import { useContext } from 'react';
 import cx from 'classnames';
 
-import { UserContext } from '@/context/UserContext';
-
 import styles from './page.module.css';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const Home = () => {
-  const { userData } = useContext(UserContext);
-
   const timeOfDay = () => {
     const now = new Date();
     const hour = now.getHours();
@@ -21,10 +17,9 @@ const Home = () => {
   return (
     <main className={cx(styles.home, 'container', 'mx-auto')}>
       <div className={styles.welcome}>
-        <div className={cx(styles.welcomeTitle, 'text-4xl')}>
-          Hello {userData?.name ? <strong>{userData.name}!</strong> : '!'}
-        </div>
-        <p className="mt-1 text-neutral-500">Good {timeOfDay()}.</p>
+        <p className="mt-1 text-neutral-500 font-bold">Good {timeOfDay()}.</p>
+        <div className={cx(styles.welcomeTitle, 'text-4xl', 'mb-2')}>Hi, I&apos;m Matt! 👋</div>
+        <ThemeSwitcher />
       </div>
     </main>
   );
