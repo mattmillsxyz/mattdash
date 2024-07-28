@@ -1,7 +1,6 @@
 .sidebar {
   @apply hidden lg:flex min-h-screen;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 30%;
 }
@@ -9,14 +8,42 @@
 .inner {
   width: 80%;
   max-width: 300px;
-  min-width: 100px;
+  min-width: 240px;
+  max-height: 850px;
   flex: 1 0 auto;
   margin: 72px 32px;
   border-radius: 30px;
-  padding: 36px 28px;
+  padding: 36px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+
+.navSection {
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.navButton {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  transition: all 0.125s ease-in-out;
+}
+
+.active {
+  @apply bg-slate-950 hover:bg-slate-950 text-white;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
 }
