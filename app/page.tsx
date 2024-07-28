@@ -2,7 +2,6 @@
 import cx from 'classnames';
 
 import styles from './page.module.css';
-import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const Home = () => {
   const timeOfDay = () => {
@@ -19,7 +18,6 @@ const Home = () => {
       <div className={styles.welcome}>
         <p className="mt-1 text-neutral-500 font-bold">Good {timeOfDay()}.</p>
         <div className={cx(styles.welcomeTitle, 'text-4xl', 'mb-2')}>Hi, I&apos;m Matt! 👋</div>
-        <ThemeSwitcher />
       </div>
     </main>
   );

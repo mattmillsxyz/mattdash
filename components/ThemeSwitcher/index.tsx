@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { Switch } from '@nextui-org/react';
+import { Switch, cn } from '@nextui-org/react';
 
-import styles from './ThemeSwitcher.module.scss';
+import styles from './ThemeSwitcher.module.css';
 
 function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
@@ -20,14 +20,17 @@ function ThemeSwitcher() {
 
   return (
     <div className={styles.themeSwitcher}>
-      <i className="bi bi-moon-fill mr-1" />
+      <i className="bi bi-moon-fill mr-2" />
       <Switch
+        classNames={{
+          wrapper: cn('dark:bg-neutral-500'),
+        }}
         isSelected={theme !== 'dark'}
         onValueChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
         color="warning"
         size="sm"
       ></Switch>
-      <i className="bi bi-sun-fill" />
+      <i className="bi bi-lightbulb-fill" />
     </div>
   );
 }

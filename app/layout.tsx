@@ -3,6 +3,8 @@ import { NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import cx from 'classnames';
 
+import Sidebar from '@/components/Sidebar';
+
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import './globals.css';
 
@@ -22,7 +24,8 @@ export default function RootLayout({
       <body>
         <NextUIProvider>
           <NextThemesProvider attribute="class" enableSystem>
-            <main className="min-h-screen dark:bg-neutral-900 light:bg-neutral-100">
+            <main className="min-h-screen dark:bg-neutral-900 bg-slate-100 flex">
+              <Sidebar />
               {children}
             </main>
           </NextThemesProvider>
