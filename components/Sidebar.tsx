@@ -13,10 +13,11 @@ function Sidebar() {
       <div
         className={cx(
           styles.inner,
-          'bg-white dark:bg-zinc-800 text-slate-400 dark:text-neutral-300'
+          'bg-white dark:bg-zinc-900 text-slate-500 dark:text-neutral-300'
         )}
       >
         <div className="text-5xl">{`{m}`}</div>
+
         <div className="flex flex-col justify-center items-start w-full">
           <small className={styles.navSection}>Menu</small>
           <NavButton icon="bi-house-fill" text="Dashboard" url="/" />
@@ -43,6 +44,7 @@ function Sidebar() {
             url="https://instagram.com/mattmillsart"
           />
         </div>
+
         <div className={cx(styles.footer)}>
           <ThemeSwitcher />
           <div className="mt-2">

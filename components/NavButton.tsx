@@ -31,9 +31,9 @@ function NavButton({ icon, isExternal = false, url, text }: NavButtonProps) {
     } else if (isActive && theme === 'dark') {
       return cx(styles.navButton, 'dark:bg-white dark:text-zinc-800 hover:dark:bg-white');
     } else if (theme === 'dark') {
-      return cx(styles.navButton, 'hover:bg-zinc-700', !isExternal ? 'dark:text-neutral-300' : '');
+      return cx(styles.navButton, 'hover:bg-zinc-800', !isExternal ? 'dark:text-neutral-300' : '');
     } else {
-      return cx(styles.navButton, 'hover:bg-slate-100', !isExternal ? 'text-slate-400' : '');
+      return cx(styles.navButton, 'hover:bg-slate-100', !isExternal ? 'text-slate-500' : '');
     }
   };
 

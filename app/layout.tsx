@@ -26,13 +26,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cx(quicksand.className, 'min-h-screen', 'text-foreground', 'bg-zinc-900', 'dark')}
+      className={cx(quicksand.className, 'min-h-screen', 'text-foreground', 'bg-zinc-950', 'dark')}
       suppressHydrationWarning
     >
       <body>
         <NextUIProvider>
           <NextThemesProvider attribute="class" enableSystem>
-            <main className="min-h-screen dark:bg-zinc-900 bg-slate-100 flex">
+            <main className="min-h-screen dark:bg-zinc-950 bg-slate-100 flex">
               <Sidebar />
               {children}
             </main>

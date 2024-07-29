@@ -9,7 +9,7 @@
   width: 80%;
   max-width: 300px;
   min-width: 240px;
-  max-height: 850px;
+  /* max-height: 1000px; */
   flex: 1 0 auto;
   margin: 72px 32px;
   border-radius: 30px;
