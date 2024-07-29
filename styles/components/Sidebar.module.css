@@ -26,21 +26,6 @@
   margin-left: 20px;
 }
 
-.navButton {
-  font-size: 20px;
-  font-weight: 600;
-  text-align: left;
-  width: 100%;
-  margin-top: 12px;
-  padding: 8px 20px;
-  border-radius: 20px;
-  transition: all 0.125s ease-in-out;
-}
-
-.active {
-  @apply bg-slate-950 hover:bg-slate-950 text-white;
-}
-
 .footer {
   display: flex;
   flex-direction: column;

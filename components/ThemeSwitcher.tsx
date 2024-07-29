@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { Switch, cn } from '@nextui-org/react';
 
-import styles from './ThemeSwitcher.module.css';
+import styles from '@/styles/components/ThemeSwitcher.module.css';
 
 function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();

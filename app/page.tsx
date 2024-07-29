@@ -1,7 +1,7 @@
 'use client';
 import cx from 'classnames';
 
-import styles from './page.module.css';
+import styles from '@/styles/app/page.module.css';
 
 const Home = () => {
   const timeOfDay = () => {
